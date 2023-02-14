@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Snippets -->
+    <template id="s_defi_snippet_1" name="Defi Snippet 1">
+        <section class="o_defi_snippet_1">
+            <div class="container">
+                <div class="text-center defi_snippet_1_value">Hello</div>
+            </div>
+        </section>
+    </template>
+    <template id="s_defi_snippet_1_list_show_time_item_structure" name="Defi Snippet 1 List Show Time Item Structure">
+        <section class="o_defi_snippet_1_list_show_time_item_structure oe_snippet_body">
+            <div class="container" />
+        </section>
+    </template>
+    <!-- Add snippets to menu -->
+    <template id="snippet_structure" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+            <t
+                t-snippet="defi_snippet_1.s_defi_snippet_1_list_show_time_item_structure"
+                t-thumbnail="/defi_snippet_1/static/description/icon.png"
+            />
+        </xpath>
+    </template>
+    <template id="snippet_effect" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="defi_snippet_1.s_defi_snippet_1" t-thumbnail="/defi_snippet_1/static/description/icon.png" />
+        </xpath>
+    </template>
+    <!-- Add stylesheet and Javascript -->
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/defi_snippet_1/static/src/scss/defi_snippet_1.scss" />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/defi_snippet_1/static/src/scss/defi_snippet_1_list_show_time_item_structure.scss"
+            />
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/defi_snippet_1/static/src/js/website.defi_snippet_1.animation.js" />
+            <script
+                type="text/javascript"
+                src="/defi_snippet_1/static/src/js/website.defi_snippet_1_list_show_time_item_structure.animation.js"
+            />
+        </xpath>
+    </template>
+</odoo>

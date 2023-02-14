@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="demo_model_portal_unit_list_show_time_item_structure" name="Portal Time">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <section class="pt32 pb32" t-if="not demo_model_portal_id">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16" style="text-align: center;">
+                                    <h1 class="s_title_default">
+                                        <font style="font-size: 62px;">demo_model_portal_id non existante</font>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        t-if="demo_model_portal_id"
+                        class="s_cover parallax s_parallax_is_fixed bg-black-50 pt96 pb96 s_parallax_no_overflow_hidden"
+                        data-scroll-background-ratio="1"
+                        style="background-image: none;"
+                    >
+                        <span
+                            class="s_parallax_bg oe_img_bg oe_custom_bg"
+                            style="background-image: url('/web/image/website.s_cover_default_image'); background-position: 50% 0;"
+                        />
+                        <div class="container">
+                            <div class="row s_nb_column_fixed" />
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="demo_model_portal_list_list_show_time_item_structure" name="Portal Time List">
+        <t t-ignore="true">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 s_col_no_bgcolor pb24">
+                        <div class="row" t-if="portal_times">
+                            <div t-foreach="portal_times" t-as="portal_time">
+                                <a t-if="portal_time" t-att-href="'/defi_snippet_1/portal_time/%d' % portal_time.id">
+                                    <div class="col-lg-12 pt16 pb16" data-name="Box">
+                                        <i class="fa fa-2x fa-files-o rounded-circle bg-primary s_features_grid_icon" />
+                                        <div class="s_features_grid_content">
+                                            <p
+                                                t-if="len(lst_time) >= portal_time_index"
+                                                class="o_default_snippet_text"
+                                                t-raw="lst_time[portal_time_index]"
+                                            />
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" t-if="not portal_times">Aucune portal_time disponible.</div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

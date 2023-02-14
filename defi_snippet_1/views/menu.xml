@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--Root menu-->
+
+    <menuitem
+        id="defi_snippet_1"
+        name="Defi Snippet 1"
+        sequence="20"
+        web_icon="defi_snippet_1,static/description/icon.png"
+    />
+
+    <!--Sub menu-->
+
+    <menuitem id="menu" name="Menu" sequence="1" parent="defi_snippet_1" />
+
+    <!--Child menu-->
+
+    <menuitem id="demo_defi" name="Demo defi" action="demo_defi_demo_defi_action_window" sequence="1" parent="menu" />
+</odoo>

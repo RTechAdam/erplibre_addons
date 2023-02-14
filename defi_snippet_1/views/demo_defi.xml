@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="demo_defi_view_form" model="ir.ui.view">
+        <field name="name">demo_defi_form</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <form string="Titre">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="demo_defi_view_graph" model="ir.ui.view">
+        <field name="name">demo_defi_graph</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <graph string="Demo defi">
+                <field name="name" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="demo_defi_view_kanban" model="ir.ui.view">
+        <field name="name">demo_defi_kanban</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="demo_defi_view_pivot" model="ir.ui.view">
+        <field name="name">demo_defi_pivot</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <pivot string="Demo defi">
+                <field name="name" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="demo_defi_view_search" model="ir.ui.view">
+        <field name="name">demo_defi_search</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <search string="Demo defi">
+                <filter domain="[('name','!=',False)]" name="name" string="Name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="demo_defi_view_tree" model="ir.ui.view">
+        <field name="name">demo_defi_tree</field>
+        <field name="model">demo.defi</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <act_window
+        id="demo_defi_demo_defi_action_window"
+        name="Demo defi"
+        res_model="demo.defi"
+        view_mode="kanban,tree,pivot,graph,form,activity"
+    />
+</odoo>
